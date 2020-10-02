@@ -1,0 +1,134 @@
+.bgimg {
+    background-image: url('/static/img/body.jpg');
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    width: 100%;
+    height: 660px;
+}
+
+.headerset {
+    padding-top: 250px;
+    box-sizing: border-box;
+}
+
+.headerset h2 {
+    font-size: 42px;
+}
+
+.headerset h1 {
+    font-size: 82px;
+    font-weight: bold;
+}
+/*popular post*/
+
+.ourservices {
+    padding: 100px 0px 60px;
+    height: 1150px;
+
+}
+
+.ourservices h1 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.rowsetting {
+    margin: 80px 0px;
+}
+
+.imgsetting {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+.fa-shopping-cart {
+    margin-top: 23px;
+}
+
+.fa-desktop {
+    margin-top: 26px;
+}
+
+.fa-globe {
+    margin-top: 25px;
+}
+
+.rowsetting h2 {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.rowsetting p {
+    padding: 10px;
+    color: #6c757d;
+}
+
+@media(min-width:992px) {}
+
+@media(min-width:768px) and (max-width:991px) {
+    .headerset h2 {
+        font-size: 42px;
+    }
+    .headerset h1 {
+        font-size: 62px;
+        font-weight: bold;
+    }
+    .ourservices {
+        height: 1200px;
+    }
+
+}
+
+@media(min-width:575px) and (max-width:767px) {
+    .headerset h2 {
+        font-size: 30px;
+    }
+    .headerset h1 {
+        font-size: 50px;
+        font-weight: bold;
+    }
+    .ourservices {
+        height: 1310px;
+    }
+}
+
+@media(max-width:574px) {
+    .headerset h2 {
+        font-size: 30px;
+    }
+    .headerset h1 {
+        font-size: 50px;
+        font-weight: bold;
+    }
+    .ourservices{
+        height: 1360px;
+    }
+}
+
+@media(max-width:479px) {
+    .headerset h2 {
+        font-size: 18px;
+    }
+    .headerset h1 {
+        font-size: 20px;
+        font-weight: bold;
+
+    }
+    .ourservices {
+        height: 1630px;
+    }
+}
+
+
+/*---additional---*/
+
+@media(max-width:320px) {
+    .ourservices {
+        height: 1900px;
+    }
+    .portfolio {
+        height: 2800px;
+    }
+}

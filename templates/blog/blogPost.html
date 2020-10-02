@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog Post{% endblock title %}
+{% block head %}
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f7608398d745b001a78a0de&product=sop' async='async'></script>
+{% endblock head %}
+{% block css %}
+
+<link rel="stylesheet" href="/static/blogPost.css">
+
+{% endblock css %}
+
+{% block body %}
+{% load humanize %}
+{% load extras %}
+
+
+<div class="container" style="padding-top: 115px;">
+    <div class="blog-post">
+        <h2 class="blog-post-title">{{post.title}}</h2>
+        <p class="blog-post-meta">{{post.timeStamp}}<a href="/about">{{post.author}}</a> (<span>{{post.views}} views</span>)</p>
+        
+        <p>{{post.content|safe}}</p>
+    </div>
+
+</div>
+<div class="container">
+
+
+    <h2>Comments:({{comments.count}})</h2>
+    <div class="sharethis-inline-share-buttons" style="padding-right: 100px;"></div>
+    <div class="my-2">
+        {% if user.is_authenticated %}
+        <form action="/blog/postComment/" method='post'>
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="text">Post Comment</label>
+                <input type="text" class="form-control" id="text" name="comment" aria-describedby="emailHelp"
+                    placeholder="Enter Comment here" required>
+            </div>
+            <input type="hidden" name="postSno" value="{{post.sno}}">
+            <input type="hidden" name="parentSno" value="">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        {% else %}
+        <p>Please login to post a comment</p>
+        {% endif %}
+
+    </div>
+    {% for comment in comments  %}
+    <div class="row my-3">
+        <div class="col-md-1 col-sm-3">
+            <img class="com_img" src="/static/img/user.png"
+                style="border:2px solid red;" alt="user">
+        </div>
+        <div class="col-md-11 col-sm-6"><b>{{comment.user.username}}</b> <span class="badge badge-secondary"
+                style="font-size: 13px;padding: 8px;">{{comment.timestamp |naturaltime}}</span>
+            <div> {{comment.comment}}</div>
+
+
+            <div class="relay mx-0 mt-3">
+                {% if user.is_authenticated %}
+
+                <button class="btn btn-sm btn-primary" type="button" data-toggle="collapse"
+                    data-target="#replayBox{{comment.sno}}" aria-expanded="false"
+                    aria-controls="replayBox{{comment.sno}}">
+                    Replay
+                </button>
+                </p>
+                <div class="collapse" id="replayBox{{comment.sno}}">
+                    <div class="card card-body my-2">
+                        <form action="/blog/postComment/" method='post'>
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="text">Post Replay</label>
+                                <input type="text" class="form-control" id="text" name="comment"
+                                    aria-describedby="emailHelp" placeholder="Enter Comment here" required>
+                                <input type="hidden" name="parentSno" value="{{comment.sno}}">
+                            </div>
+                            <input type="hidden" name="postSno" value="{{post.sno}}">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                {% else %}
+                <button class="btn btn-sm btn-primary" type="button" data-toggle="collapse"
+                    data-target="#replayBox{{comment.sno}}" aria-expanded="false"
+                    aria-controls="replayBox{{comment.sno}}" disabled>
+                    Login Replay
+                </button>
+
+                {% endif %}
+                <div class="replies  my-3">
+                    {% for replay in replayDict|get_val:comment.sno%}
+                    <div class="row my-2">
+                        <div class="col-md-1 col-sm-3">
+                            <img class="rep_img" src="/static/img/user.png"
+                                style="border:2px solid green;" alt="user">
+                        </div>
+                        <div class="col-md-11 col-sm-6">
+                            <b>{{replay.user.username}}</b> <span class="badge badge-secondary"
+                                style="font-size: 13px;padding: 8px;">{{replay.timestamp |naturaltime}}</span>
+                            <div> {{replay.comment}}</div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock body %}

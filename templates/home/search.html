@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Results{% endblock title %}
+{% block blogactive %} active {% endblock blogactive %}
+
+{% block body %}
+<div class="container">
+    <h2>Search Results:</h2>
+    {% if allPosts|length < 1 %}
+    <p>Your search query: <b>{{query}}</b>- did not match any documents.</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-xm-12 ">
+                <ul>
+                    Suggestions:
+                    <li>Try different keywords.</li>
+                    <li>Try general keywords.</li>
+                    <li>Try to use less keywords.</li>
+                </ul>
+            </div>
+            <div class="col-md-6 col-xm-12 ">
+                <i class="fa fa-exclamation-triangle fa-5x" style="color: gold;" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+    {% for post in allPosts %}
+
+    <div class="row no-gutters border rounded overflow-hidden flex-md-row my-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">{{post.author}}</strong>
+            <h3 class="mb-0">{{post.title}}</h3>
+            <div class="mb-1 text-muted">{{post.timeStamp}}</div>
+            <p class="card-text mb-auto">{{post.content |truncatechars:500}}</p>
+            <div class="my2">
+                <a href="/blog/{{post.slug}}" role="button" class="btn btn-primary">Continue reading</a>
+            </div>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock body %}

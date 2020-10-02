@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}About{% endblock title %}
+{% block aboutactive %} active {% endblock aboutactive %}
+{% block css %}
+
+<link rel="stylesheet" href="/static/about.css">
+
+{% endblock css %}
+{% block body %}
+<section>
+    <div class="container about">
+        <h2 class="text-center text-success font-weight-bold">ABOUT US</h2>
+        <h3>Hello everyone!</h3>
+
+        <p>It’s great to have you on the blog and fantastic that you’re taking an interest in who we are and what we do!
+
+            iCoder is a community blog, which is run and supported by several individuals.</p>
+
+        <h3>What We Write About</h3>
+        <p>Technology is our core area of writing, however we also post about the environment, computers, the Internet,
+            science, blogging, social media, gadgets and more. A full list of the topics we cover can be found in the
+            footer.</p>
+
+        <h3>Our Structure</h3>
+        <p>Technology Bloggers is not a business or a company. We are an organisation of people working together to
+            provide a great blog. More information on the people who contribute to the site can be found on the our
+            writers page.</p>
+
+        <h3>Our Mission</h3>
+        <p>Our aim is to make web development easier and more fun by providing high-quality resources and useful
+            tutorials to our readers. The website has been founded in June 2020. The name “iCoder” came from the
+            founder’s immoderate love for these sweet, friendly and funny animals.</p>
+        <p>iCoder provides free guides, tutorials, and articles about web development and web design in python. All
+            content on the site is free of charge for our readers.</p>
+        <p>In addition to articles, we also provide exclusive deals, coupons and discounts on python training for
+            beginner and everything else that can be useful to bloggers, web developers and designers.</p>
+    </div>
+</section>
+
+<section class="ourteam">
+    <div class="container text-center">
+        <h1>OUR AMAZING TEAM</h1>
+        <p>Contact with our tech-expart.</p>
+
+        <div class="row teamsetting">
+            <div class="col-lg-4 col-md-4 col-sm-10 col-12 d-block m-auto">
+                <figure class="figure">
+                    <img src="/static/img/aniket.jpeg" class="figure-img img-fluid rounded-circle" height="250px"
+                        width="250px">
+                    <figcaption>
+                        <h4>Aniket Ghosh</h4>
+                        <p class="figure-caption"> Full Stack Devloper</p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-10 col-12 d-block m-auto">
+                <figure class="figure">
+                    <img src="/static/img/sourav.jpg" class="figure-img img-fluid rounded-circle" height="250px"
+                        width="250px">
+                    <figcaption>
+                        <h4>Sourav Patra</h4>
+                        <p class="figure-caption">Backend Devloper</p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-10 col-12 d-block m-auto">
+                <figure class="figure">
+                    <img src="/static/img/alu.jpg" class="figure-img img-fluid rounded-circle" height="250px"
+                        width="250px">
+                    <figcaption>
+                        <h4>Souvik Alu</h4>
+                        <p class="figure-caption">Data Science</p>
+                    </figcaption>
+                </figure>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+{% endblock body %}

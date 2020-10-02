@@ -1,0 +1,68 @@
+.com_img{
+    width: 100%;
+    border-radius: 50%;
+    background-color: yellow;
+    
+}
+.rep_img{
+    width: 70%;
+    border-radius: 50%;
+    background-color: white;
+
+}
+
+@media(min-width:992px) {}
+
+@media(min-width:768px) and (max-width:991px) {}
+
+@media(min-width:575px) and (max-width:767px) {
+    .com_img{
+        width: 30%;
+        border-radius: 50%;
+        background-color: yellow;
+        
+    }
+    .rep_img{
+        width: 15%;
+        border-radius: 50%;
+        background-color: white;
+    
+    }
+}
+
+@media(max-width:574px) {
+    .com_img{
+        width: 25%;
+        border-radius: 50%;
+        background-color: yellow;
+        
+    }
+    .rep_img{
+        width: 20%;
+        border-radius: 50%;
+        background-color: white;
+    
+    }
+}
+
+@media(max-width:479px) {
+    .com_img{
+        width: 25%;
+        border-radius: 50%;
+        background-color: yellow;
+        
+    }
+    .rep_img{
+        width: 20%;
+        border-radius: 50%;
+        background-color: white;
+    
+    }
+}
+
+@media(max-width:320px) {}
+
+
+
+
+/* rounded mx-auto d-block w-100 p-2 rounded-circle  */

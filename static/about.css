@@ -1,0 +1,78 @@
+.about{
+    height: 560px;
+    padding: 100px 0px 60px;
+    width: 100%;
+
+}
+.about h3{
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.ourteam {
+    height: 700px;
+    padding: 100px 0px 60px;
+    width: 100%;
+}
+
+.ourteam h1 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.teamsetting {
+    margin-top: 70px;
+}
+
+
+
+/*media*/
+@media(min-width:992px) {}
+
+@media(min-width:768px) and (max-width:991px) {
+    .about{
+        padding-top: 80px;
+        height: 720px;
+    }
+    .ourteam{
+        height: 580px;
+    }
+}
+
+@media(min-width:575px) and (max-width:767px) {
+    .about{
+        padding-top: 80px;
+        height: 795px;
+    }
+    .ourteam{
+        height: 1350px;
+    }
+}
+
+@media(max-width:574px) {
+    .about{
+        padding-top: 80px;
+        height: 850px;
+    }
+    .ourteam{
+        height: 1350px;
+    }
+}
+
+@media(max-width:479px) {
+    .about{
+        padding-top: 80px;
+        height: 990px;
+    }
+    .ourteam{
+        height: 1450px;
+    }
+}
+
+@media(max-width:320px) {
+    .about{
+        padding-top: 80px;
+        height: 1260px;
+    }
+    
+}

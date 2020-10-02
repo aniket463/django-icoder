@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+{% block homeactive %} active {% endblock homeactive %}
+
+{% block css %}
+<link rel="stylesheet" href="/static/style.css">
+
+
+{% endblock css %}
+
+
+{% block body %}
+<div class="bgimg">
+<div class="container text-center text-white headerset">
+    <h2>Welcome To iCoder</h2>
+    <h1>IT'S NICE TO MEET YOU</h1>
+    {% if user.is_authenticated %}
+        <a href="/blog"><button type="button" class="btn btn-warning text-white btn-lg" data-toggle="modal" >GO TO BLOG</button></a>
+
+    {% else %}
+    <button type="button" class="btn btn-warning text-white btn-lg" data-toggle="modal" data-whatever="@mdo" data-target="#signupModal">JOIN WITH US</button>
+    {% endif %}
+    </div>
+</div>
+
+<section id="service" class="container ourservices">
+<div class="container" id="trending">
+    <h1 class="text-center">TRENDING POST</h1>
+    {% for top in top_post %}
+    <div class="row no-gutters border rounded overflow-hidden flex-md-row my-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">{{top.author}} ({{top.views}} views)</strong>
+            <h3 class="mb-0"> <a class="text-dark" href="/blog/{{top.slug}}">{{top.title}}</a></h3>
+            <div class="mb-1 text-muted">{{top.timeStamp}}</div>
+            <p class="card-text mb-auto"><div class="preview">{{top.content|safe |truncatechars:300}}</div></p>
+            <div class="my2">
+                <a href="/blog/{{top.slug}}" role="button" class="btn btn-primary">Continue reading</a>
+            </div>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+        </div>
+    </div>
+    {% endfor %}
+    <a href="#top">Back to Top</a>
+</div>
+</section>
+
+{% endblock body %}
